@@ -1,6 +1,5 @@
 'use strict';
 const Stock = require("../models").Stock;
-const fetch = require("node-fetch")
 
 const createStock = async (stock, like, ip) => {
   const newStock = new Stock({
@@ -29,7 +28,7 @@ const saveScock = async (stock, like,ip) => {
 }
 
 const getStock = async (stock) => {
-  const res = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/${stock}/quote`);
+  const res = await fetch(`https://stock-price-checker-proxy.freecodecamp.rocks/v1/stock/[${stock}]/quote`);
   const {symbol, latestPrice} = await res.json();
   return {symbol, latestPrice}
 }
